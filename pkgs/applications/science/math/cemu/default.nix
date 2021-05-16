@@ -14,12 +14,12 @@
 
 mkDerivation rec {
   pname = "CEmu";
-  version = "1.3";
+  version = "dfa1dc46e6f236a0a3d42feba7f7e105348de40b";
   src = fetchFromGitHub {
     owner = "CE-Programming";
     repo = "CEmu";
-    rev = "v${version}";
-    sha256 = "1wcdnzcqscawj6jfdj5wwmw9g9vsd6a1rx0rrramakxzf8b7g47r";
+    rev = "${version}";
+    sha256 = "sha256-WzBRgQejOfzEwYJhKIgs7IvE0bHiaM1YaF3dGbd5Rvc=";
     fetchSubmodules = true;
   };
 
