@@ -1,5 +1,5 @@
 { lib, fetchFromGitHub, stdenv
-, ffmpeg, frei0r, sox, gtk3, python3
+, ffmpeg, frei0r, sox, gtk3, python3, ladspaPlugins
 , gobject-introspection, makeWrapper, wrapGAppsHook
 }:
 
@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-/EkI3qiceB5eKTVQnpG+z4e6yaE9hDtn6I+iN/J+h/g=";
   };
 
-  buildInputs = [ ffmpeg frei0r sox gtk3 python_env gobject-introspection ];
+  buildInputs = [ ffmpeg frei0r sox gtk3 python_env gobject-introspection ladspaPlugins ];
 
   nativeBuildInputs = [ gobject-introspection makeWrapper wrapGAppsHook ];
 
@@ -34,6 +34,8 @@ stdenv.mkDerivation rec {
     cp -a ${src}/flowblade-trunk $out/flowblade
 
     makeWrapper $out/flowblade/flowblade $out/bin/flowblade \
+      --set FREI0R_PATH ${frei0r}/lib/frei0r-1 \
+      --set LADSPA_PATH ${ladspaPlugins}/lib/ladspa \
       ''${gappsWrapperArgs[@]}
 
     runHook postInstall
