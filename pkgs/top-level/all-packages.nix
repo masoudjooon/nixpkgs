@@ -4626,6 +4626,10 @@ with pkgs;
 
   s-tar = callPackage ../tools/archivers/s-tar {};
 
+  sigdigger = libsForQt5.callPackage ../applications/radio/sigdigger { };
+  
+  sigutils = callPackage ../development/libraries/sigutils {};
+
   sonota = callPackage ../tools/misc/sonota { };
 
   sonobuoy = callPackage ../applications/networking/cluster/sonobuoy { };
@@ -4633,6 +4637,10 @@ with pkgs;
   soupault = callPackage ../tools/typesetting/soupault { };
 
   strawberry = libsForQt5.callPackage ../applications/audio/strawberry { };
+
+  suscan = callPackage ../development/libraries/suscan {};
+
+  suwidgets = libsForQt5.callPackage ../development/libraries/suwidgets { };
 
   tealdeer = callPackage ../tools/misc/tealdeer {
     inherit (darwin.apple_sdk.frameworks) Security;
